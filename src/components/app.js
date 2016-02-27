@@ -1,11 +1,23 @@
 import React from 'react';
+import { Provider, connect } from 'react-redux';
 
-export default React.createClass({
-  render: function () {
+import AppHeader from './app-header';
+import Todos from './todos';
+
+import store from '../store/configureStore';
+
+class App extends React.Component {
+  render() {
     return (
-      <div>
-        Welcome to React!
-      </div>
+      <Provider store={store}>
+        <div>
+          <AppHeader title={'Todos App'} tagline={'sweet todos'}/>
+          <Todos />
+        </div>
+      </Provider>
     );
   }
-});
+}
+
+export default App;
+
